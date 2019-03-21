@@ -11,11 +11,11 @@ Note: It is assumed that you have basic knowledge of Kotlin, npm, JavaScript, mo
 ## Installation
 1. Clone this repository
 
-## running the project
+## Running the project
 Run the following command in the root directory of the project: `gradlew -t run`. 
 This will download gradle, download the required dependencies and run a webpack server for the project on port 8088 in continuous build mode (the browser will refresh automatically on code changes).
 
-## bundling for production
+## Bundling for production
 Run the following command in the root directory of the project: `gradlew clean bundle -Pprod`. 
 This will download gradle, download the required dependencies, compile(transpile) Kotlin to JavaScript, bundle the JavaScript code into a single file, minify it and remove unused code to reduce file size.
 The bundle and the HTML file in the `resources` folder will placed in a `web` folder in the root of the project.
