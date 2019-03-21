@@ -42,14 +42,14 @@ Additionally, in the same file, you can see that the following external function
 @JsModule("axios")
 private external fun <T> axios(config: AxiosConfigSettings): Promise<AxiosResponse<T>>
 ```
-This tell the compiler that the external function is a JavaScript module, i.e. it is exported from a JavaScript file somewhere by `module.exports.MODULE_NAME` and imported in Kotlin using `@JsModule("MODULE_NAME")`.
+This tells the compiler that the external function is a JavaScript module, i.e. it is exported from a JavaScript file somewhere by `module.exports.MODULE_NAME` and imported in Kotlin using `@JsModule("MODULE_NAME")`.
 
 ### Serializing
 The `kotlinx.serialization` library is used for (de)serialization, 
 you must annotate serializable classes with the `@Serializable` annotation (see `Todo.kt`).
 This will provide the class with a `serializer()` function which must be passed to the `parse` and `stringify` functions.
 
-### Making GET, POST, PUT, DELETE
+### Making GET, POST, PUT, and DELETE requests
 A function has been written to ease the use of Axios within Kotlin:
 ```kotlin
 fun <T> axios(
@@ -101,5 +101,5 @@ Using the `gradlew -t run` command runs the webpack dev server in continuous mod
 Using the `gradlew bundle -Pprod` command will build the project for production, the Kotlin files will be compiled(transpiled) to JavaScript, the required JavaScript files will be bundled into a single JavaScript file, the bundle will be minified, and moved to the web folder in the root directory of the project (along with the HTML files in the `src/resources/web) folder.
 
 ### Removing unused code
-The `kotlin-dce-js` Gradle plugin automatically removes unused code from the compiled(transpiled) JavaScript file, this is especially useful due to the fact that the Kotlin standard library is rather big and has to be included with the app in order for it to run, the plugin will remove unused code from the standard library.
+The `kotlin-dce-js` Gradle plugin automatically removes unused code from the compiled(transpiled) JavaScript file, this is especially useful due to the fact that the Kotlin standard library is rather big and has to be included with the app in order for it to run.
 Without the plugin, the production bundle (which is minified) is 955KB, the plugin brings this down to 241KB.
