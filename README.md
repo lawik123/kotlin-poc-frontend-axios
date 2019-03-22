@@ -62,7 +62,7 @@ fun <T> axios(
     return axios(axiosConfigSettings)
 }
 ```
-This function takes two parameters, a `DeserializationStrategy` for the expected return type and a `AxiosConfigSettings` function literal with receiver to allow for easy config of the request.
+This function takes two parameters, a `DeserializationStrategy` for the expected return type and a `AxiosConfigSettings` function literal with receiver to allow for easy configuration of the request.
 The body of the response is de-serialized using the `kotlinx.serialization` library and the provided `DeserializationStrategy`.
 
 This function allows you to make requests in the following manner:
