@@ -1,3 +1,5 @@
+package nl.lawik.poc.frontend.axios
+
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.list
 import kotlin.js.Promise
@@ -13,14 +15,19 @@ fun main() {
 }
 
 fun axiosGET(): Promise<List<Todo>> {
-    return axios(Todo.serializer().list) { url = API_URL }.then { it.data }
+    return axios(Todo.serializer().list) {
+        url = API_URL
+    }.then { it.data }
 }
 
 fun axiosPOST(): Promise<Todo> {
     return axios(Todo.serializer()) {
         url = API_URL
         method = "POST"
-        data = Json(encodeDefaults = false).stringify(Todo.serializer(), Todo(1, "test", false))
+        data = Json(encodeDefaults = false).stringify(
+            Todo.serializer(),
+            Todo(1, "test", false)
+        )
         headers = json("Content-Type" to "application/json")
     }.then { it.data }
 }
@@ -29,7 +36,10 @@ fun axiosPUT(): Promise<Todo> {
     return axios(Todo.serializer()) {
         url = "$API_URL/1"
         method = "PUT"
-        data = Json.stringify(Todo.serializer(), Todo(1, "test2", true, 1))
+        data = Json.stringify(
+            Todo.serializer(),
+            Todo(1, "test2", true, 1)
+        )
         headers = json("Content-Type" to "application/json")
     }.then { it.data }
 }

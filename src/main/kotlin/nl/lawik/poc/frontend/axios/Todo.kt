@@ -1,3 +1,5 @@
+package nl.lawik.poc.frontend.axios
+
 import kotlinx.serialization.Optional
 import kotlinx.serialization.Serializable
 

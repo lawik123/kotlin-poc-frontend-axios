@@ -1,8 +1,7 @@
+package nl.lawik.poc.frontend.axios
+
 import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.json.Json
-import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
-import kotlin.coroutines.suspendCoroutine
 import kotlin.js.Promise
 
 @JsModule("axios")
